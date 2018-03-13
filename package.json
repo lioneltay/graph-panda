@@ -1,6 +1,6 @@
 {
   "name": "graphql-tekk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Collection of tools for working with graphql",
   "main": "src/index.js",
   "repository": {
