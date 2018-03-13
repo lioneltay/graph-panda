@@ -1,15 +1,33 @@
 {
   "name": "graphql-tekk",
   "version": "0.0.1",
-  "description": "",
+  "description": "Collection of tools for working with graphql",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lioneltay/graphql-tekk"
+  },
   "scripts": {
     "test": "jest --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "graphql",
+    "tekk",
+    "tools",
+    "helpers",
+    "schema",
+    "reader",
+    "graphql-tekk"
+  ],
+  "author": {
+    "name": "Lionel Tay",
+    "email": "lionel.tay@outlook.com"
+  },
   "license": "ISC",
   "devDependencies": {
+    "@types/graphql": "^0.12.4",
+    "@types/jest": "^22.2.0",
+    "@types/ramda": "^0.25.20",
     "jest": "^22.4.2"
   },
   "jest": {
