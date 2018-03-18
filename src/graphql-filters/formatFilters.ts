@@ -1,15 +1,10 @@
-const R = require("ramda")
-const { objToArray, onlyKey, onlyValue, singleKey } = require("./helpers")
-const {
+import * as R from "ramda"
+import { objToArray, onlyKey, onlyValue, singleKey } from "./helpers"
+import {
   readSqlBatch,
   readJunction,
   readReturnType,
-} = require("../graphql-schema-reader")
-
-/**
- * Need to detect whether a field is a relation field and recurse
- * Need to detect relational key and recurse
- */
+} from "../graphql-schema-reader"
 
 const sqlFilterKey = key =>
   R.contains(key, [
@@ -68,7 +63,7 @@ const formatAND = (andFilters, { schema, type }) => {
   return { AND: arr }
 }
 
-const formatFilters = (filters, { schema, type }) => {
+export const formatFilters = (filters, { schema, type }) => {
   // { property: { ... }, proerty2: { ... }, ... }
   if (!singleKey(filters)) {
     const res = formatFilters(

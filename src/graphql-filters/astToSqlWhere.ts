@@ -1,9 +1,9 @@
-const R = require("ramda")
-const sqlFormatter = require("sql-formatter")
-const knex = require("../knex")
+import * as R from "ramda"
+import { format } from "sql-formatter"
+import { knex } from "../knex"
 
 // Turn filter AST into where string
-const astToSqlWhere = ast => {
+export const astToSqlWhere = ast => {
   const astToSql_ = ast => {
     if (ast.NOT) {
       const subSql = astToSql_(ast.NOT)
@@ -28,9 +28,5 @@ const astToSqlWhere = ast => {
     return knex.raw(ast.clause, ast.variables).toString()
   }
 
-  return sqlFormatter.format(astToSql_(ast))
-}
-
-module.exports = {
-  astToSqlWhere,
+  return format(astToSql_(ast))
 }

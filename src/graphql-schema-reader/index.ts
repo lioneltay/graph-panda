@@ -1,18 +1,5 @@
 const R = require("ramda")
 
-// const fieldReturnType = ({ schema, type, field }) => {
-//   const { GraphQLScalarType, GraphQLList } = require("graphql")
-//   const typeObject = readTypeField({ schema, type, field }).type
-
-//   if (typeObject instanceof GraphQLScalarType) {
-//     return typeObject.name
-//   }
-
-//   if (typeObject instanceof GraphQLList) {
-//     return typeObject.ofType.name
-//   }
-// }
-
 const readType = ({ schema, type }) => {
   return schema._typeMap[type]
 }
@@ -27,35 +14,35 @@ const readField = ({ schema, type, field }) => {
   return resField
 }
 
-const readJunction = ({ schema, type, field }) => {
+export const readJunction = ({ schema, type, field }) => {
   try {
-  return schema._typeMap[type]._fields[field].junction
-  } catch(e) {
+    return schema._typeMap[type]._fields[field].junction
+  } catch (e) {
     throw Error(`readJunction(${type}, ${field})`)
   }
 }
 
-const readSqlBatch = ({ schema, type, field }) => {
-  return readField({schema, type, field }).sqlBatch
+export const readSqlBatch = ({ schema, type, field }) => {
+  return readField({ schema, type, field }).sqlBatch
 }
 
-const readSqlColumn = ({ schema, type, field }) => {
+export const readSqlColumn = ({ schema, type, field }) => {
   return schema._typeMap[type]._fields[field].sqlColumn
 }
 
-const readSqlExpr = ({ schema, type, field }) => {
+export const readSqlExpr = ({ schema, type, field }) => {
   return schema._typeMap[type]._fields[field].sqlExpr
 }
 
-const readSqlTable = ({ schema, type }) => {
+export const readSqlTable = ({ schema, type }) => {
   return schema._typeMap[type]._typeConfig.sqlTable
 }
 
-const readUniqueKey = ({ schema, type }) => {
+export const readUniqueKey = ({ schema, type }) => {
   return schema._typeMap[type]._typeConfig.uniqueKey
 }
 
-const readReturnType = ({ schema, type, field }) => {
+export const readReturnType = ({ schema, type, field }) => {
   let returnType
   const sqlBatch = readSqlBatch({ schema, type, field })
 
@@ -92,14 +79,4 @@ const traverseSchemaWithContext = ({ schema }) => {
 
 const wrapResolvers = ({ schema }) => {
   // do stuff
-}
-
-module.exports = {
-  readSqlColumn,
-  readSqlExpr,
-  readSqlTable,
-  readUniqueKey,
-  readSqlBatch,
-  readJunction,
-  readReturnType,
 }

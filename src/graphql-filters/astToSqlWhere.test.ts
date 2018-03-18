@@ -1,8 +1,5 @@
-const R = require("ramda")
-const sqlFormatter = require("sql-formatter")
-const formatSql = require("sql-formatter").format
-
-const { astToSqlWhere } = require("./astToSqlWhere")
+import { format as formatSql } from "sql-formatter"
+import { astToSqlWhere } from "./astToSqlWhere"
 
 test("astToSqlWhere: Handles single clause", () => {
   const ast = {
@@ -10,7 +7,7 @@ test("astToSqlWhere: Handles single clause", () => {
     variables: ["2028-2-2"],
   }
 
-  const sql = sqlFormatter.format(`
+  const sql = formatSql(`
     table.createdAt > '2028-2-2'
   `)
 
@@ -35,7 +32,7 @@ test("astToSqlWhere: test", () => {
     ],
   }
 
-  const sql = sqlFormatter.format(`
+  const sql = formatSql(`
   (
     table.createdAt > '2028-2-2'
     AND (
@@ -75,7 +72,7 @@ test("astToSqlWhere: test 2 complex", () => {
     ],
   }
 
-  const sql = sqlFormatter.format(`
+  const sql = formatSql(`
   (
     table.createdAt > '2028-2-2'
     AND (
@@ -125,7 +122,7 @@ test("astToSqlWhere: test 3 complex", () => {
     ],
   }
 
-  const sql = sqlFormatter.format(`
+  const sql = formatSql(`
     (
       table.createdAt > '2028-2-2'
       AND (
@@ -167,7 +164,7 @@ test("astToSqlWhere: Handles relational clauses (1)", () => {
     subClause: { clause: `post.likes > ?`, variables: [3] },
   }
 
-  const sql = sqlFormatter.format(`
+  const sql = formatSql(`
     user.inkey in (
       SELECT user.inkey FROM user
         INNER JOIN post ON post.authorid = user.id
@@ -206,7 +203,7 @@ test("astToSqlWhere: Handles relational clauses (2)", () => {
     ],
   }
 
-  const sql = sqlFormatter.format(`(
+  const sql = formatSql(`(
     table.createdat > '2028-2-2'
     AND user.inkey in (
       SELECT user.inkey FROM user
@@ -252,7 +249,7 @@ test("astToSqlWhere: Handles relational clauses (3)", () => {
     ],
   }
 
-  const sql = sqlFormatter.format(`(
+  const sql = formatSql(`(
     table.createdat > '2028-2-2'
     AND user.inkey in (
       SELECT user.inkey FROM user
@@ -327,7 +324,7 @@ test("astToSqlWhere: Handles combination of relational clauses", () => {
     ],
   }
 
-  const sql = sqlFormatter.format(`(
+  const sql = formatSql(`(
     table.createdat > '2028-2-2'
     AND (
       user.inkey in (
@@ -402,7 +399,7 @@ test("astToSqlWhere: test", () => {
     },
   }
 
-  const sql = sqlFormatter.format(`
+  const sql = formatSql(`
   ( NOT
     (
       table.createdAt > '2028-2-2'

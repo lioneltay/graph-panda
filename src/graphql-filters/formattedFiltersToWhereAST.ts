@@ -1,14 +1,14 @@
-const R = require("ramda")
+import * as R from "ramda"
 
-const { onlyKey, onlyValue } = require("./helpers")
-const {
+import { onlyKey, onlyValue } from "./helpers"
+import {
   readSqlColumn,
   readSqlExpr,
   readJunction,
   readSqlBatch,
   readSqlTable,
   readUniqueKey,
-} = require("../graphql-schema-reader")
+} from "../graphql-schema-reader"
 
 const traverseFormattedFilters = (filters, fn) => {
   const key = onlyKey(filters)
@@ -244,15 +244,11 @@ const parseClause = (clause, { type, tableName, schema }) => {
   return parsePropertyField(clause, { type, tableName, schema })
 }
 
-const formattedFiltersToWhereAST = (
+export const formattedFiltersToWhereAST = (
   formattedFilters,
   { type, tableName, schema }
 ) => {
   return traverseFormattedFilters(formattedFilters, filter =>
     parseClause(filter, { type, tableName, schema })
   )
-}
-
-module.exports = {
-  formattedFiltersToWhereAST,
 }
