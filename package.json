@@ -10,7 +10,9 @@
   "scripts": {
     "compile": "tsc || true",
     "compileAndRun": "npm run compile && node dist/index.js",
-    "dev": "nodemon --watch src/ --exec \"npm run compileAndRun\"",
+    "devslow": "nodemon --watch src/ --exec \"npm run compileAndRun\"",
+    "compileWatch": "tsc --watch",
+    "dev": "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
     "test": "jest --watch"
   },
   "keywords": [
@@ -31,12 +33,22 @@
   "license": "ISC",
   "jest": {
     "testEnvironment": "node",
-    "moduleDirectories": ["node_modules", "src"],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "dependencies": {
     "graphql": "^0.13.1",
@@ -51,7 +63,6 @@
     "@types/knex": "^0.14.9",
     "@types/ramda": "^0.25.20",
     "concurrently": "^3.5.1",
-    "forever": "^0.15.3",
     "jest": "^22.4.2",
     "nodemon": "^1.17.2",
     "source-map-support": "^0.5.4",
