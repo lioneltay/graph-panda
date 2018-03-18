@@ -8,11 +8,9 @@
     "url": "https://github.com/lioneltay/graphql-tekk"
   },
   "scripts": {
-    "typescript": "tsc --watch",
-    "nodemon": "nodemon dist/index.js",
-    "devii": "concurrently \"npm run typescript\" \"npm run nodemon\"",
-    "compile": "tsc && node dist/index.js",
-    "dev": "nodemon --watch src/ --exec \"npm run compile\"",
+    "compile": "tsc || true",
+    "compileAndRun": "npm run compile && node dist/index.js",
+    "dev": "nodemon --watch src/ --exec \"npm run compileAndRun\"",
     "test": "jest --watch"
   },
   "keywords": [
@@ -53,7 +51,9 @@
     "@types/knex": "^0.14.9",
     "@types/ramda": "^0.25.20",
     "concurrently": "^3.5.1",
+    "forever": "^0.15.3",
     "jest": "^22.4.2",
+    "nodemon": "^1.17.2",
     "source-map-support": "^0.5.4",
     "ts-jest": "^22.4.1",
     "typescript": "^2.7.2"
