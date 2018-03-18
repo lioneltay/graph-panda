@@ -8,6 +8,11 @@
     "url": "https://github.com/lioneltay/graphql-tekk"
   },
   "scripts": {
+    "typescript": "tsc --watch",
+    "nodemon": "nodemon dist/index.js",
+    "devii": "concurrently \"npm run typescript\" \"npm run nodemon\"",
+    "compile": "tsc && node dist/index.js",
+    "dev": "nodemon --watch src/ --exec \"npm run compile\"",
     "test": "jest --watch"
   },
   "keywords": [
@@ -17,29 +22,40 @@
     "helpers",
     "schema",
     "reader",
-    "graphql-tekk"
+    "tech",
+    "graphl-tekk",
+    "graphql-tech"
   ],
   "author": {
     "name": "Lionel Tay",
     "email": "lionel.tay@outlook.com"
   },
   "license": "ISC",
-  "devDependencies": {
-    "@types/graphql": "^0.12.4",
-    "@types/jest": "^22.2.0",
-    "@types/ramda": "^0.25.20",
-    "jest": "^22.4.2"
-  },
   "jest": {
     "testEnvironment": "node",
-    "moduleDirectories": [
-      "node_modules",
-      "lib"
-    ]
+    "moduleDirectories": ["node_modules", "src"],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "dependencies": {
     "graphql": "^0.13.1",
     "graphql-tools": "^2.21.0",
-    "ramda": "^0.25.0"
+    "knex": "^0.14.4",
+    "ramda": "^0.25.0",
+    "sql-formatter": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/graphql": "^0.12.5",
+    "@types/jest": "^22.2.0",
+    "@types/knex": "^0.14.9",
+    "@types/ramda": "^0.25.20",
+    "concurrently": "^3.5.1",
+    "jest": "^22.4.2",
+    "source-map-support": "^0.5.4",
+    "ts-jest": "^22.4.1",
+    "typescript": "^2.7.2"
   }
 }

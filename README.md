@@ -1,5 +1,9 @@
 # graphql-tekk
 
+## NOTES
+
+* make the functionality, split into modules later
+
 ## TODOS
 
 * [ ] add typescript
