@@ -1,6 +1,6 @@
 {
-  "name": "graphql-tekk",
-  "version": "0.0.2",
+  "name": "graph-panda",
+  "version": "0.0.1",
   "description": "Collection of tools for working with graphql",
   "main": "src/index.js",
   "repository": {
@@ -12,7 +12,8 @@
     "compileAndRun": "npm run compile && node dist/index.js",
     "devslow": "nodemon --watch src/ --exec \"npm run compileAndRun\"",
     "compileWatch": "tsc --watch",
-    "dev": "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
+    "dev":
+      "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
     "test": "jest --watch"
   },
   "keywords": [
@@ -33,22 +34,12 @@
   "license": "ISC",
   "jest": {
     "testEnvironment": "node",
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
+    "moduleDirectories": ["node_modules", "src"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "dependencies": {
     "graphql": "^0.13.1",
@@ -67,6 +58,7 @@
     "nodemon": "^1.17.2",
     "source-map-support": "^0.5.4",
     "ts-jest": "^22.4.1",
+    "tslint": "^5.9.1",
     "typescript": "^2.7.2"
   }
 }

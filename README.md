@@ -1,6 +1,6 @@
 # graphql-tekk
 
-A collection of tools for implementing common features of a graphql server.
+A collection of tools for implementing common features of a graphql server. Get everything you need by adding descriptions to your GraphQL Schema
 
 ## Features/Modules
 
@@ -23,6 +23,24 @@ Allow the wrapping of resolvers. Behaviour of the wrapper resolver can be config
 ### Schema Annotations (TODO)
 
 Add any custom properties to an existing graphql schema
+
+### Business Data Layer (TODO)
+
+Create data Models to manipulate data using the same GraphQL Schema
+
+* [ ] map sqlcolumns fields to sql table fields
+* [ ] for properties that depend on multiple columns, define a reverse mapping that turns the computed value into multiple parts which can be updated
+  * eg firstName, lastName -> fullName bob + lee -> bob lee, bobby lee -> bobby + lee
+  * obviously only if the transformation is invertible
+* [ ] Support upsert queries
+
+### Pagination (TODO)
+
+Configure pagination through the schema
+
+### Schema Validation (TODO)
+
+Define what constitutes a valid schema be free of worries
 
 ## NOTES
 

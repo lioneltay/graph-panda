@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "outDir": "dist",
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -11,9 +11,16 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "preserveConstEnums": true,
     "strictNullChecks": true,
-    "lib": ["esnext.asynciterable", "es5"]
+    "lib": [
+      "esnext.asynciterable",
+      "es5",
+      "esnext",
+      "es2015.generator",
+      "es2015.iterable"
+    ]
   },
   "files": ["./src/index.ts"],
   "exclude": ["node_modules", "dist"]

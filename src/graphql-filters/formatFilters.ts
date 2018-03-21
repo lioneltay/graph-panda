@@ -6,7 +6,14 @@ import {
   readReturnType,
 } from "../graphql-schema-reader"
 
-const sqlFilterKey = key =>
+interface Filters {
+  AND?: [Filters]
+  OR?: [Filters]
+  key: { nugget: string }
+  value: string
+}
+
+const sqlFilterKey = (key: string) =>
   R.contains(key, [
     "gt",
     "lt",
@@ -18,16 +25,27 @@ const sqlFilterKey = key =>
     "lte",
     "null",
   ])
-const relationalFilterKey = key => R.contains(key, ["some", "all", "none"])
-const combinationKey = key => R.contains(key, ["AND", "OR"])
-const relationalField = ({ schema, type, field }) => {
+const relationalFilterKey = (key: string) =>
+  R.contains(key, ["some", "all", "none"])
+
+const combinationKey = (key: string) => R.contains(key, ["AND", "OR"])
+
+function relationalField({
+  schema,
+  type,
+  field,
+}: {
+  schema: any
+  type: string
+  field: string
+}) {
   return (
     readSqlBatch({ schema, type, field }) ||
     readJunction({ schema, type, field })
   )
 }
 
-const formatOR = (orFilters, { schema, type }) => {
+const formatOR = (orFilters: Filters, { schema, type }) => {
   const res = orFilters.OR.map(filter =>
     formatFilters(filter, { schema, type })
   ).reduce((acc, v) => {
@@ -138,7 +156,7 @@ export const formatFilters = (filters, { schema, type }) => {
         [field]: {
           [onlyKey(filterProps)]: formatFilters(onlyValue(filterProps), {
             schema,
-            type: readReturnType({ schema, type, field: field }),
+            type: readReturnType({ schema, type, field }),
           }),
         },
       }
@@ -146,7 +164,7 @@ export const formatFilters = (filters, { schema, type }) => {
       return {
         [field]: formatFilters(filterProps, {
           schema,
-          type: readReturnType({ schema, type, field: field }),
+          type: readReturnType({ schema, type, field }),
         }),
       }
     }
