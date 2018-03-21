@@ -1,6 +1,6 @@
 {
   "name": "graph-panda",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Collection of tools for working with graphql",
   "main": "dist/index.js",
   "repository": {
