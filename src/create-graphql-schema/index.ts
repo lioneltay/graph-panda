@@ -6,7 +6,7 @@ const mergeDeepAll = R.reduce(R.mergeDeepLeft, {})
 
 // Model: { type: String, definitions: GraphQLSchemaAnnotation }
 // createSchema = inputModels: [Model] => GraphQLSchema
-const createSchema = inputModels => {
+export const createSchema = inputModels => {
   const typeAnnotations = mergeDeepAll(
     inputModels.map(R.prop("definitions")).filter(Boolean)
   )
@@ -35,7 +35,3 @@ const createSchema = inputModels => {
 
   return schema
 }
-
-module.exports = { createSchema }
-
-

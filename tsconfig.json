@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "outDir": "dist",
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
-    "removeComments": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
+
+    "strict": true,
     "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    // "strictPropertyInitialization": true,
+    // "noImplicitAny": true,
+    // "alwaysStrict": true,
+    // "noImplicitReturns": true,
+    // "noImplicitThis": true,
+
+    "removeComments": true,
     "preserveConstEnums": true,
     "strictNullChecks": true,
     "lib": [
