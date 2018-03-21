@@ -65,7 +65,11 @@ Define what constitutes a valid schema be free of worries
 * [x] publish to npm
 * [x] figure out how to publish only the compiled src (npmignore)
 * [ ] use nodejs scripts as start script
+
   * [ ] fix the double initial compilation
+
+* [ ] Figure out how peerDependencies work...
+  * [ ] Do peerdependencies have to be duplicated in devDependencies?
 
 ## DEMOS
 
