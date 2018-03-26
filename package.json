@@ -5,11 +5,12 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lioneltay/graphql-tekk"
+    "url": "https://github.com/lioneltay/graph-panda"
   },
   "scripts": {
     "compile": "tsc || true",
-    "dev": "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
+    "dev":
+      "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
     "test": "jest --watch"
   },
   "keywords": [
@@ -19,9 +20,7 @@
     "helpers",
     "schema",
     "reader",
-    "tech",
-    "graphl-tekk",
-    "graphql-tech"
+    "tech"
   ],
   "author": {
     "name": "Lionel Tay",
@@ -30,22 +29,12 @@
   "license": "ISC",
   "jest": {
     "testEnvironment": "node",
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
+    "moduleDirectories": ["node_modules", "src"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "peerDependencies": {
     "graphql": "^0.13.2"

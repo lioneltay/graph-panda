@@ -34,6 +34,8 @@ Create data Models to manipulate data using the same GraphQL Schema
   * obviously only if the transformation is invertible
 * [ ] Support upsert queries
 
+* [ ] should be able to check constraints before an operation, hooks?
+
 ### Pagination (TODO)
 
 Configure pagination through the schema
