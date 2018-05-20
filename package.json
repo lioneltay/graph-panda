@@ -10,7 +10,8 @@
   },
   "scripts": {
     "compile": "tsc || true",
-    "dev": "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
+    "dev":
+      "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -28,25 +29,6 @@
     "email": "lionel.tay@outlook.com"
   },
   "license": "ISC",
-  "jest": {
-    "testEnvironment": "node",
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  },
   "peerDependencies": {
     "graphql": "^0.13.2"
   },
@@ -65,7 +47,6 @@
     "graphql": "^0.13.2",
     "jest": "^22.4.4",
     "nodemon": "^1.17.2",
-    "source-map-support": "^0.5.4",
     "ts-jest": "^22.4.6",
     "tslint": "^5.9.1",
     "typescript": "^2.8.3"
