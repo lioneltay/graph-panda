@@ -3,15 +3,16 @@
   "version": "0.0.4",
   "description": "Collection of tools for working with graphql",
   "main": "dist/index.js",
+  "type": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/lioneltay/graph-panda"
   },
   "scripts": {
     "compile": "tsc || true",
-    "dev":
-      "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
-    "test": "jest --watch"
+    "dev": "npm run compile && concurrently \"tsc --watch\" \"nodemon dist/index.js --watch dist/\"",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "graphql",
@@ -29,12 +30,22 @@
   "license": "ISC",
   "jest": {
     "testEnvironment": "node",
-    "moduleDirectories": ["node_modules", "src"],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "peerDependencies": {
     "graphql": "^0.13.2"
@@ -47,16 +58,16 @@
   },
   "devDependencies": {
     "@types/graphql": "^0.12.5",
-    "@types/jest": "^22.2.0",
+    "@types/jest": "^22.2.3",
     "@types/knex": "^0.14.9",
     "@types/ramda": "^0.25.20",
     "concurrently": "^3.5.1",
-    "jest": "^22.4.2",
     "graphql": "^0.13.2",
+    "jest": "^22.4.4",
     "nodemon": "^1.17.2",
     "source-map-support": "^0.5.4",
-    "ts-jest": "^22.4.1",
+    "ts-jest": "^22.4.6",
     "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
+    "typescript": "^2.8.3"
   }
 }
